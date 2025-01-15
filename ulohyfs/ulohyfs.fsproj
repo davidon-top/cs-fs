@@ -13,6 +13,7 @@
         <Compile Include="src\u17.fs" />
         <Compile Include="src\u18.fs" />
         <Compile Include="src\u19.fs" />
+        <Compile Include="src\u20.fs" />
         <Compile Include="src\Program.fs" />
     </ItemGroup>
 
