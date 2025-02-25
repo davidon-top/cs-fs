@@ -19,6 +19,7 @@
         <Compile Include="src\u24.fs" />
         <Compile Include="src\u25.fs" />
         <Compile Include="src\u26.fs" />
+        <Compile Include="src\u27.fs" />
         <Compile Include="src\u17.fs" />
         <Compile Include="src\u18.fs" />
         <Compile Include="src\u19.fs" />
