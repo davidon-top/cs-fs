@@ -1,4 +1,4 @@
-module UlohyFs.u28
+module UlohyFs.u29
 
 open System.IO
 open System.Text.RegularExpressions
@@ -6,25 +6,16 @@ open System.Text.Unicode
 open UlohyFs.Attributes
 open System
 
-let (./.) l r = $"{l}{Path.PathSeparator}{r}"
+let napoje = [| 20; 55; 45; 95; 150; 105; 100; 45 |]
 
-
-let getHobit =
-    Environment.GetFolderPath(Environment.SpecialFolder.Desktop) ./. "maturita" ./. "ZADANIE č.19" ./. "hobit.txt"
-    |> fun x -> if File.Exists x then Some(x) else None
-    |> function
-        | Some(v) -> File.ReadAllText v
-        | None ->
-            printfn "Nepodarilo sa najst hobit.txt zadaj cestu k hobit.txt"
-            let inp = Console.ReadLine()
-            File.ReadAllText inp
-
-[<Uloha(28)>]
-let uloha28() =
-    let h = getHobit
-    let mutable spaces = 0
-    h
-    |> String.iter (fun c -> if c = ' ' then spaces <- spaces + 1)
-    printfn "medzery: %d" spaces
-    h
-    |> printfn "%s"
+[<Uloha(29)>]
+let uloha29() =
+    printfn "napoje:"
+    napoje |> Array.iteri (fun i x -> printfn $"{i + 1}. cena: {x}")
+    let inp = Console.ReadLine().Trim() |> int
+    let mutable cena = napoje[inp - 1]
+    while not (cena <= 0) do
+        printfn "vhod mincu, este treba %d" cena
+        let minca = Console.ReadLine().Trim() |> int
+        cena <- cena - minca
+    printfn "vydavok: %d" (Math.Abs cena)
